@@ -1,0 +1,9 @@
+:{
+prompt :: [String] -> String
+prompt [] = "\955> "
+prompt ms = "\ESC[36m"
+    ++ Data.List.intercalate " " ms
+    ++ "\ESC[m\n"
+    ++ prompt []
+:}
+:set prompt-function (\ms _ -> pure $ prompt ms)
