@@ -46,14 +46,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - semantics
+    when:        
+    - condition: false        
+      other-modules: Paths_mypkgname
 
-tests:
-  semantics-test:
-    main:                Spec.hs
-    source-dirs:         test
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - semantics

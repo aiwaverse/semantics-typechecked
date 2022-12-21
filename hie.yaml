@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./app/Main.hs"
+      component: "semantics:exe:semantics-exe"
+
+    - path: "./src/LZero.hs"
+      component: "semantics:lib"

@@ -24,7 +24,7 @@ eval :: Expr a -> [String]
 eval e = case inner e of
    Just ee -> show e : eval ee
    Nothing -> [show e]
-  where inner e' = smallStep e'
+  where inner = smallStep
 
 
 smallStep :: Expr a -> Maybe (Expr a)
@@ -34,7 +34,7 @@ smallStep False = Nothing
 smallStep e@(Succ _) = applySucc e
 smallStep e@(Pred _) = applyPred e
 smallStep e@(IsZero _) = applyIsZero e
-smallStep e@(If _ _ _) = applyIf e
+smallStep e@If{}= applyIf e
 
 applySucc :: Expr Nat -> Maybe (Expr Nat)
 applySucc e = case smallStep e of
